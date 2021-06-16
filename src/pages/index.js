@@ -17,8 +17,6 @@ const IndexPage = () => {
 
       setBreeds(breedsArray);
       setDisplayBreeds(breedsArray);
-  
-      console.log('useeffect breeds: ', breeds);
     }
 
     getDogBreeds();

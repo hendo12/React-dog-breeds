@@ -5,15 +5,12 @@ const DogItem = ({ breed, getDogPicture }) => {
     const [imageUrl, setImageUrl] = useState('');
 
     useEffect(() => {
-        getDogPicture(breed).then((url)=> {
-            setImageUrl(url);
-          });
-        return () => {
-           
+        if(imageUrl === '') {
+            getDogPicture(breed).then((url)=> {
+                setImageUrl(url);
+            });
         }
     }, [])
-
-    console.log('dog item image url: ', imageUrl);
 
   return (
     <div className="breed-item">
