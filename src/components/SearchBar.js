@@ -1,24 +1,34 @@
 import React, { useState } from 'react';
+import './SearchBar.css';
 
-const SearchBar = ({ onFormSubmit, breeds, setDisplayBreeds }) => {
+const SearchBar = ({ breeds, setDisplayBreeds }) => {
   const [term, setTerm] = useState('');
 
-  const onSubmit = (event) => {
-    event.preventDefault();
+  const onInputChange = (event) => {
+   
+    let searchTerm = event.target.value.toLowerCase();
+    let showBreeds = [];
+    breeds.filter((breed) => {
+        if(breed.indexOf(searchTerm) > -1) {
+            showBreeds.push(breed);
+        }
+    });
 
-    onFormSubmit(term);
+    setDisplayBreeds(showBreeds);
+    setTerm(event.target.value);
   };
 
   return (
-    <div className="search-bar ui segment">
-        <form onSubmit={onFormSubmit} className="breedsForm">
+    <div className="search-bar">
+        <form className="breedsForm">
             <div className="field">
             <label htmlFor="breed">Dog Breeds</label>
             <input
                 type="text"
                 value={term}
                 name="breed"
-                onChange={(event) => setTerm(event.target.value)}
+                onChange={(event) => onInputChange(event)}
+                placeholder="Search breed"
             />
             
             </div>

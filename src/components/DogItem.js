@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './DogItem.css';
 
 const DogItem = ({ breed, getDogPicture }) => {
     const [imageUrl, setImageUrl] = useState('');
@@ -16,14 +17,13 @@ const DogItem = ({ breed, getDogPicture }) => {
 
   return (
     <div className="breed-item">
+      <div className="breed-overlay"></div>
       <img
         alt={breed}
-        className="image"
+        className="breed-image"
         src={imageUrl}
       />
-      <div className="content">
-        <div className="header">{breed}</div>
-      </div>
+      <div className="breed-header">{breed}</div>
     </div>
   );
 };

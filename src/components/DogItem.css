@@ -1,0 +1,49 @@
+.breed-item {
+  margin: 30px;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.breed-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(152, 152, 152, 0.3);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.breed-overlay:hover {
+  background-color: rgba(152, 152, 152, 0.5);
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.breed-image {
+  width: 100%;
+  height: 100%;
+}
+
+.breed-header {
+  position: absolute;
+  font-weight: 600;
+  color: white;
+  top: 50%;
+  text-transform: uppercase;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+  font-size: 1.5em;
+}
+
+@media only screen and (max-width: 600px) {
+  .breed-item {
+    width: 350px;
+    height: 350px;
+  }
+}
